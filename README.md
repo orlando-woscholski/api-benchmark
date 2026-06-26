@@ -1,25 +1,22 @@
 # TTS Latency Horse-Race
 
-Measures **Time to First Audio Byte (TTFAB)** across five TTS providers:
-**Neuphonic**, **Gradium**, **ElevenLabs**, **Cartesia**, and **OpenAI**.
+Measures **Time to First Audio Byte (TTFAB)** across five TTS providers: Neuphonic, Gradium, ElevenLabs, Cartesia, and OpenAI.
 
-Results are most meaningful from a European endpoint — latency to each provider's infrastructure varies significantly by region.
+Results are most meaningful from a European server. The benchmark is set up to use the Europe West Codespaces region by default since that is where Neuphonic's fastest infrastructure is based.
 
 ---
 
-## 🚀 How to Run the Benchmark in Europe West
+## How to Run
 
-GitHub Codespaces lets you choose the server region, which matters here because Neuphonic's infrastructure is in Western Europe. Always launch from that region so the numbers are a fair, low-latency comparison.
+### Step 1 - Launch the Codespace
 
-### Step 1 — Launch in Europe West
+Click the green **Code** button, go to the **Codespaces** tab and click **New with options**. The region should already be set to **Europe West**. If not, set it before clicking Create.
 
-On the repository page, click the green **Code** button → **Codespaces** tab → **New with options**.
+Dependencies install automatically once the Codespace starts.
 
-In the options screen, set **Region** to **Europe West** before clicking Create. This is important — the default US region will add artificial latency and skew all results.
+### Step 2 - Add your API keys
 
-### Step 2 — Add your API keys
-
-Once the Codespace has opened and `pip install -r requirements.txt` has finished, copy `.env.example` to `.env`:
+Copy `.env.example` to `.env`:
 
 ```bash
 cp .env.example .env
@@ -35,8 +32,6 @@ NEUPHONIC_API_KEY=...
 ELEVENLABS_API_KEY=...
 ```
 
-### Step 3 — Open and run the notebook
+### Step 3 - Run the notebook
 
-Open `latency_horserace.ipynb` in the VS Code editor (the Jupyter extension is pre-installed). Run all cells top to bottom with **Run All**.
-
-The final cell prints the mean TTFAB per engine and renders a box plot inline.
+Open `latency_horserace.ipynb` and click **Run All**. The final cell prints the mean TTFAB per engine and shows a box plot.
