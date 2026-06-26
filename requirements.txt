@@ -1,0 +1,9 @@
+pyneuphonic
+cartesia
+gradium
+openai
+websockets
+pandas
+matplotlib
+python-dotenv
+jupyterlab
